@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Web3Provider } from './providers/Web3Provider';
 import Navbar from './components/Navbar';
@@ -13,8 +12,8 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<ChallengesPage />} />
-            <Route path="/challenges" element={<ChallengesPage />} />
-            <Route path="/challenge/:id" element={<ChallengePage />} />
+            <Route path="/practice" element={<ChallengesPage />} />
+            <Route path="/practice/:id" element={<ChallengePage />} />
             {/* Add more routes as needed */}
           </Routes>
         </div>

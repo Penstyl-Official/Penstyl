@@ -1,5 +1,6 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useState } from'react';
+import { useParams } from'react-router-dom';
+import Editor from "@monaco-editor/react";
 
 interface Challenge {
   id: number;
@@ -10,6 +11,7 @@ interface Challenge {
   content: string;
   solved: boolean;
 }
+
 
 const challengesData: Record<string, Challenge> = {
   '1': {
@@ -374,21 +376,42 @@ const challengesData: Record<string, Challenge> = {
   },
 };
 
-
 export default function ChallengePage() {
   const { id } = useParams<{ id: string }>();
-  const challenge = id ? challengesData[id] : null;
+  const challenge = id? challengesData[id] : null;
+  const [code, setCode] = useState('');
+  const [submitted] = useState(false);
 
   if (!challenge) {
     return (
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="text-center text-white">
-          <h2 className="text-2xl font-bold text-white">Challenge not found</h2>
-          <p className="mt-2 text-white">The challenge you're looking for doesn't exist.</p>
+          <h2 className="text-2xl font-bold text-white">task not found</h2>
+          <p className="mt-2 text-white">The task you're looking for doesn't exist.</p>
         </div>
       </div>
     );
   }
+
+  /*
+  const handleSubmit = () => {
+    const submissionData = {
+      taskName: challenge.title,
+      timestamp: new Date().toISOString(),
+      taskId: challenge.id,
+      code: code,
+    };
+
+    const submissionFolder = path.join(__dirname,'submissions');
+    const submissionFile = path.join(submissionFolder, `${challenge.id}_${new Date().toISOString()}.json`);
+
+    fs.mkdirSync(submissionFolder, { recursive: true });
+    fs.writeFileSync(submissionFile, JSON.stringify(submissionData, null, 2));
+
+    console.log('Submission sent to queue!');
+    setSubmitted(true);
+  };
+  */
 
   return (
     <div className="min-h-screen bg-gray-900 py-12">
@@ -415,6 +438,41 @@ export default function ChallengePage() {
           </div>
           <div className="border-t border-gray-700 pt-6">
             <div dangerouslySetInnerHTML={{ __html: challenge.content }} className="text-gray-300" />
+          </div>
+
+          {/* Monaco Editor */}
+          <div className="mt-6">
+            <h2 className="text-xl font-bold text-white">Your Code</h2>
+            <div
+              style={{
+                width: '100%',
+                height: '500px',
+                border: '1px solid #ccc',
+              }}
+            >
+              <Editor
+                height="100%"
+                defaultLanguage="rust"
+                theme="vs-dark"
+                value={code}
+                onChange={(value) => setCode(value || '')}
+                options={{
+                  minimap: { enabled: false },
+                  fontSize: 14,
+                  scrollBeyondLastLine: false,
+                  automaticLayout: true,
+                }}
+              />
+            </div>
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4"
+              //onClick={handleSubmit}
+            >
+              Submit
+            </button>
+            {submitted && (
+              <p className="text-green-500 mt-2">Code submitted successfully!</p>
+            )}
           </div>
         </div>
       </div>
