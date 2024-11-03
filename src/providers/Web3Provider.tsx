@@ -1,12 +1,12 @@
 import React from 'react';
 import { RainbowKitProvider, getDefaultWallets } from '@rainbow-me/rainbowkit';
 import { WagmiConfig, configureChains, createConfig } from 'wagmi';
-import { mainnet, sepolia } from 'wagmi/chains';
+import { arbitrum } from 'wagmi/chains';
 import { publicProvider } from 'wagmi/providers/public';
 import '@rainbow-me/rainbowkit/styles.css';
 
 const { chains, publicClient } = configureChains(
-  [mainnet, sepolia],
+  [arbitrum],
   [publicProvider()]
 );
 
