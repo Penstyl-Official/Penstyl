@@ -11,7 +11,7 @@ const { chains, publicClient } = configureChains(
 );
 
 const { connectors } = getDefaultWallets({
-  appName: 'CTF Platform',
+  appName: 'Penstyl',
   projectId: 'YOUR_PROJECT_ID', // Get from WalletConnect Cloud
   chains,
 });
