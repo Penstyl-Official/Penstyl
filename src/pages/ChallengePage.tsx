@@ -12,6 +12,60 @@ interface Challenge {
 }
 
 const challengesData: Record<string, Challenge> = {
+  '1': {
+    id: 1,
+    title: 'State Machine Implementation',
+    category: 'State Management',
+    points: 180,
+    solved: false,
+    description: 'Implement a state machine to manage transaction processing.',
+    content: `
+      <div>
+        <p>Develop a state machine to efficiently manage transaction states within the contract.</p>
+        <ul>
+          <li>Define the various states the transaction can be in (e.g., Pending, Completed, Canceled).</li>
+          <li>Implement transitions between states based on specified conditions.</li>
+          <li>Ensure that state transitions are secure and prevent unauthorized changes.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '2': {
+    id: 2,
+    title: 'Cross-Contract Interaction Vulnerability',
+    category: 'Smart Contracts',
+    points: 220,
+    solved: false,
+    description: 'Analyze and exploit vulnerabilities caused by cross-contract interactions.',
+    content: `
+      <div>
+        <p>Investigate and demonstrate potential vulnerabilities arising from interactions between multiple contracts.</p>
+        <ul>
+          <li>Identify scenarios where one contract’s behavior can adversely affect another.</li>
+          <li>Develop test cases that exploit these vulnerabilities.</li>
+          <li>Propose strategies to mitigate the identified risks.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '3': {
+    id: 3,
+    title: 'Secure Withdrawal Implementation',
+    category: 'Security Patterns',
+    points: 160,
+    solved: false,
+    description: 'Refactor a withdrawal function to follow the Checks-Effects-Interactions pattern.',
+    content: `
+      <div>
+        <p>Refactor the withdrawal function to ensure it adheres to the Checks-Effects-Interactions pattern.</p>
+        <ul>
+          <li>Check conditions before making any state changes.</li>
+          <li>Update the contract state (e.g., balances) after validation.</li>
+          <li>Finally, execute the transfer of funds to avoid reentrancy attacks.</li>
+        </ul>
+      </div>
+    `,
+  },
   '4': {
     id: 4,
     title: 'Access Control Testing',
@@ -25,6 +79,7 @@ const challengesData: Record<string, Challenge> = {
         <ul>
           <li>Review permissions of all functions.</li>
           <li>Find cases where unauthorized users may call sensitive functions.</li>
+          <li>Propose fixes for identified vulnerabilities.</li>
         </ul>
       </div>
     `,
@@ -42,6 +97,7 @@ const challengesData: Record<string, Challenge> = {
         <ul>
           <li>Define roles such as admin and user.</li>
           <li>Restrict access to certain functions based on role.</li>
+          <li>Ensure role management is secure and auditable.</li>
         </ul>
       </div>
     `,
@@ -59,6 +115,7 @@ const challengesData: Record<string, Challenge> = {
         <ul>
           <li>Review arithmetic operations that can cause overflow.</li>
           <li>Fix the vulnerabilities by implementing checks or using safe math functions.</li>
+          <li>Test the fixed code for correctness and security.</li>
         </ul>
       </div>
     `,
@@ -76,6 +133,7 @@ const challengesData: Record<string, Challenge> = {
         <ul>
           <li>Set a waiting period before critical operations are executed.</li>
           <li>Ensure that only authorized users can initiate the time-lock.</li>
+          <li>Provide transparency on time-lock durations to all users.</li>
         </ul>
       </div>
     `,
@@ -93,12 +151,229 @@ const challengesData: Record<string, Challenge> = {
         <ul>
           <li>Ensure only authorized users can trigger self-destruct.</li>
           <li>Consider alternative mechanisms for cleaning up the contract.</li>
+          <li>Implement checks to prevent misuse of self-destruct functionality.</li>
         </ul>
       </div>
     `,
   },
-  // More challenge data can be added here as needed for all the new challenges
+  '9': {
+    id: 9,
+    title: 'Implement Safe Math Library',
+    category: 'Security Patterns',
+    points: 160,
+    solved: false,
+    description: 'Integrate a safe math library to prevent overflow and underflow issues.',
+    content: `
+      <div>
+        <p>Incorporate a safe math library into your contract to handle arithmetic operations safely.</p>
+        <ul>
+          <li>Use the library for all arithmetic calculations to prevent overflows.</li>
+          <li>Ensure compatibility with existing contract functions.</li>
+          <li>Document the changes and test thoroughly for security and performance.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '10': {
+    id: 10,
+    title: 'Gas Optimization Techniques',
+    category: 'Smart Contracts',
+    points: 190,
+    solved: false,
+    description: 'Optimize gas usage by refactoring inefficient code segments.',
+    content: `
+      <div>
+        <p>Review and refactor the contract code to optimize gas consumption.</p>
+        <ul>
+          <li>Identify functions that are expensive in terms of gas usage.</li>
+          <li>Apply best practices for gas optimization in Solidity.</li>
+          <li>Benchmark gas costs before and after optimizations to quantify improvements.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '11': {
+    id: 11,
+    title: 'Event Logging for Audits',
+    category: 'Security Patterns',
+    points: 110,
+    solved: false,
+    description: 'Add appropriate event logging to support contract audits and tracking.',
+    content: `
+      <div>
+        <p>Enhance the contract by implementing event logging for critical actions.</p>
+        <ul>
+          <li>Identify key actions that should be logged for audit purposes.</li>
+          <li>Define and emit events for those actions.</li>
+          <li>Ensure logs are structured and provide necessary details for auditing.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '12': {
+    id: 12,
+    title: 'Immutable Storage Pattern',
+    category: 'Smart Contracts',
+    points: 175,
+    solved: false,
+    description: 'Implement immutable storage to securely handle critical contract data.',
+    content: `
+      <div>
+        <p>Utilize the immutable storage pattern to protect critical data in your contract.</p>
+        <ul>
+          <li>Define variables as immutable to prevent unwanted changes post-construction.</li>
+          <li>Consider implications for contract upgradeability and functionality.</li>
+          <li>Document the design choices and their security benefits.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '13': {
+    id: 13,
+    title: 'Upgradeability with Proxy Pattern',
+    category: 'Smart Contracts',
+    points: 250,
+    solved: false,
+    description: 'Implement a proxy pattern to enable safe upgradeability of a contract.',
+    content: `
+      <div>
+        <p>Design and implement a proxy pattern for contract upgradeability.</p>
+        <ul>
+          <li>Define how the proxy will delegate calls to the implementation contract.</li>
+          <li>Ensure secure and controlled upgrade mechanisms for the implementation.</li>
+          <li>Test the upgradeability to ensure it works as intended without losing state.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '14': {
+    id: 14,
+    title: 'Flash Loan Attack Defense',
+    category: 'Security Patterns',
+    points: 230,
+    solved: false,
+    description: 'Implement mechanisms to mitigate risks associated with flash loan attacks.',
+    content: `
+      <div>
+        <p>Develop strategies to protect your contract from flash loan attacks.</p>
+        <ul>
+          <li>Analyze potential vulnerabilities in your contract’s logic that could be exploited by flash loans.</li>
+          <li>Implement safeguards such as price oracles and time delays.</li>
+          <li>Test the contract against simulated flash loan attacks to validate effectiveness.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '15': {
+    id: 15,
+    title: 'Front-Running Attack Prevention',
+    category: 'Security Patterns',
+    points: 210,
+    solved: false,
+    description: 'Add measures to prevent front-running attacks in transaction handling.',
+    content: `
+      <div>
+        <p>Implement strategies to protect against front-running attacks on your transactions.</p>
+        <ul>
+          <li>Evaluate potential areas where front-running could occur.</li>
+          <li>Incorporate techniques such as commit-reveal schemes to deter attackers.</li>
+          <li>Test your implementation under simulated front-running scenarios.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '16': {
+    id: 16,
+    title: 'Multi-Signature Wallet',
+    category: 'Smart Contracts',
+    points: 280,
+    solved: false,
+    description: 'Design a multi-signature wallet to authorize critical transactions.',
+    content: `
+      <div>
+        <p>Create a multi-signature wallet to enhance security for managing funds.</p>
+        <ul>
+          <li>Define the required number of signatures for transaction approval.</li>
+          <li>Implement the wallet functionality and ensure proper validation of signatures.</li>
+          <li>Test the wallet with multiple users to confirm its robustness.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '17': {
+    id: 17,
+    title: 'Oracles and Price Feed Security',
+    category: 'Security Patterns',
+    points: 220,
+    solved: false,
+    description: 'Implement and secure oracle integration for fetching reliable price feeds.',
+    content: `
+      <div>
+        <p>Integrate oracles into your contract to fetch external data securely.</p>
+        <ul>
+          <li>Evaluate different oracle solutions and choose one that suits your needs.</li>
+          <li>Implement the integration while ensuring data integrity and availability.</li>
+          <li>Test the oracle mechanism under different scenarios to confirm reliability.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '18': {
+    id: 18,
+    title: 'Whitelist Mechanism',
+    category: 'Smart Contracts',
+    points: 150,
+    solved: false,
+    description: 'Implement a whitelist to control access to certain functions in the contract.',
+    content: `
+      <div>
+        <p>Design a whitelist mechanism to restrict access to specific functions in your contract.</p>
+        <ul>
+          <li>Determine which functions require restricted access.</li>
+          <li>Implement checks to validate addresses against the whitelist.</li>
+          <li>Document the process for adding and removing addresses from the whitelist.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '19': {
+    id: 19,
+    title: 'Rate Limiting Function Calls',
+    category: 'Security Patterns',
+    points: 170,
+    solved: false,
+    description: 'Implement a rate limit to prevent abuse of sensitive contract functions.',
+    content: `
+      <div>
+        <p>Establish a rate limiting mechanism for sensitive functions in your contract.</p>
+        <ul>
+          <li>Define acceptable limits for function calls from a single address.</li>
+          <li>Implement checks to track and enforce the limits.</li>
+          <li>Test the rate limit functionality to ensure it is effective and fair.</li>
+        </ul>
+      </div>
+    `,
+  },
+  '20': {
+    id: 20,
+    title: 'Random Number Generation',
+    category: 'Smart Contracts',
+    points: 200,
+    solved: false,
+    description: 'Design a random number generator that is resistant to manipulation.',
+    content: `
+      <div>
+        <p>Implement a secure random number generator for your contract.</p>
+        <ul>
+          <li>Evaluate various methods of generating random numbers in Solidity.</li>
+          <li>Ensure the method chosen is resistant to manipulation and predictable outputs.</li>
+          <li>Test the random number generation to ensure it meets security and functionality requirements.</li>
+        </ul>
+      </div>
+    `,
+  },
 };
+
 
 export default function ChallengePage() {
   const { id } = useParams<{ id: string }>();
