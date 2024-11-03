@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ChallengeCard from '../components/ChallengeCard';
 import { useAccount } from 'wagmi';
-import { useNavigate } from 'react-router-dom';
 
 const categories = ['Smart Contracts', 'Security Patterns', 'State Management'];
 
@@ -171,7 +170,6 @@ const challenges = [
 export default function ChallengesPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const { isConnected } = useAccount();
-  const navigate = useNavigate();
 
   const filteredChallenges = selectedCategory === 'All'
     ? challenges
@@ -182,7 +180,7 @@ export default function ChallengesPage() {
       <div className="min-h-screen bg-gray-900 flex items-center justify-center">
         <div className="text-center text-white">
           <h2 className="text-2xl font-bold">Connect Your Wallet</h2>
-          <p className="mt-2">Please connect your wallet to view challenges.</p>
+          <p className="mt-2">Please connect your wallet to view tasks.</p>
         </div>
       </div>
     );
@@ -192,9 +190,9 @@ export default function ChallengesPage() {
     <div className="min-h-screen bg-gray-900">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white">Challenges</h1>
+          <h1 className="text-3xl font-bold text-white">Practice</h1>
           <p className="mt-2 text-sm text-gray-300">
-            Test your skills with our collection of smart contract security challenges.
+            Test your skills with our collection of smart contract security tasks.
           </p>
         </div>
 

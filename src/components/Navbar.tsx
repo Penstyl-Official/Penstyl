@@ -1,5 +1,4 @@
-import React, { Fragment } from 'react';
-import { Disclosure, Menu, Transition } from '@headlessui/react';
+import { Disclosure } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import { Link } from 'react-router-dom';
 import { ConnectButton } from '@rainbow-me/rainbowkit';
