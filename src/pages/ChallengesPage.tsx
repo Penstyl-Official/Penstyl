@@ -179,21 +179,21 @@ export default function ChallengesPage() {
 
   if (!isConnected) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900">Connect Your Wallet</h2>
-          <p className="mt-2 text-gray-600">Please connect your wallet to view challenges.</p>
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center text-white">
+          <h2 className="text-2xl font-bold">Connect Your Wallet</h2>
+          <p className="mt-2">Please connect your wallet to view challenges.</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-900">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900">Challenges</h1>
-          <p className="mt-2 text-sm text-gray-600">
+          <h1 className="text-3xl font-bold text-white">Challenges</h1>
+          <p className="mt-2 text-sm text-gray-300">
             Test your skills with our collection of smart contract security challenges.
           </p>
         </div>
@@ -205,7 +205,7 @@ export default function ChallengesPage() {
               className={`px-4 py-2 rounded-md text-sm font-medium ${
                 selectedCategory === 'All'
                   ? 'bg-blue-600 text-white'
-                  : 'bg-white text-gray-700 hover:bg-gray-50'
+                  : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
               }`}
             >
               All
@@ -217,7 +217,7 @@ export default function ChallengesPage() {
                 className={`px-4 py-2 rounded-md text-sm font-medium ${
                   selectedCategory === category
                     ? 'bg-blue-600 text-white'
-                    : 'bg-white text-gray-700 hover:bg-gray-50'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                 }`}
               >
                 {category}

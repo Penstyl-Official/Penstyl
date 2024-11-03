@@ -381,40 +381,40 @@ export default function ChallengePage() {
 
   if (!challenge) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-2xl font-bold text-gray-900">Challenge not found</h2>
-          <p className="mt-2 text-gray-600">The challenge you're looking for doesn't exist.</p>
+      <div className="min-h-screen bg-gray-900 flex items-center justify-center">
+        <div className="text-center text-white">
+          <h2 className="text-2xl font-bold text-white">Challenge not found</h2>
+          <p className="mt-2 text-white">The challenge you're looking for doesn't exist.</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-900 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-lg shadow-md p-6">
+        <div className="bg-gray-800 rounded-lg shadow-md p-6">
           <div className="mb-6">
             <div className="flex justify-between items-start">
               <div>
-                <h1 className="text-2xl font-bold text-gray-900">{challenge.title}</h1>
+                <h1 className="text-2xl font-bold text-white">{challenge.title}</h1>
                 <div className="flex items-center space-x-2 mt-2">
                   <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                     {challenge.category}
                   </span>
-                  <span className="text-sm text-gray-500">{challenge.points} points</span>
+                  <span className="text-sm text-gray-400">{challenge.points} points</span>
                 </div>
               </div>
               {challenge.solved && (
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-white">
                   Solved
                 </span>
               )}
             </div>
-            <p className="mt-4 text-gray-600">{challenge.description}</p>
+            <p className="mt-4 text-gray-300">{challenge.description}</p>
           </div>
-          <div className="border-t border-gray-200 pt-6">
-            <div dangerouslySetInnerHTML={{ __html: challenge.content }} />
+          <div className="border-t border-gray-700 pt-6">
+            <div dangerouslySetInnerHTML={{ __html: challenge.content }} className="text-gray-300" />
           </div>
         </div>
       </div>
