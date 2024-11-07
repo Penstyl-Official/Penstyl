@@ -1,20 +1,35 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
 import Home from './Home';
 import TaskDetails from './TaskDetails';
 import Navbar from './Navbar';
 
 const App: React.FC = () => {
+  const [currentRoute, setCurrentRoute] = useState<string>(window.location.hash || '#/');
+
+  const renderRoute = () => {
+    switch (currentRoute) {
+      case '#/task-details':
+        return <TaskDetails />;
+      case '#/':
+      default:
+        return <Home />;
+    }
+  };
+
+  useEffect(() => {
+    const handleHashChange = () => {
+      setCurrentRoute(window.location.hash || '#/');
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/task-details" element={<TaskDetails />} />
-        </Routes>
-      </div>
-    </Router>
+    <div className="App">
+      <Navbar />
+      {renderRoute()}
+    </div>
   );
 };
 

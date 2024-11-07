@@ -3,6 +3,7 @@
     "@types/cors": "^2.8.17",
     "@types/node": "^22.9.0",
     "ts-node": "^10.9.2",
+    "tsx": "^4.19.2",
     "typescript": "^5.6.3"
   },
   "dependencies": {
@@ -13,10 +14,13 @@
     "cors": "^2.8.5",
     "ethers": "^6.13.4",
     "express": "^4.21.1",
+    "localforage": "^1.10.0",
+    "match-sorter": "^8.0.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router": "^6.4.0",
     "react-router-dom": "^6.27.0",
+    "sort-by": "^1.2.0",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7"
   },

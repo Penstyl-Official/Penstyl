@@ -26,9 +26,9 @@ const Home: React.FC = () => {
           <li key={task.task_id}>
             <h3>{task.task_name}</h3>
             <p>{task.task_description}</p>
-            <Link to={`/task/${task.task_id}`}>
-              <button>Solve</button>
-            </Link>
+            <form action={`/task/${task.task_id}`} method="get">
+              <button type="submit">Solve</button>
+            </form>
           </li>
         ))}
       </ul>
