@@ -1,25 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Web3Provider } from './providers/Web3Provider';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import ChallengesPage from './pages/ChallengesPage';
-import ChallengePage from './pages/ChallengePage';
+import Home from './pages/Home';
+import About from './pages/About';
+import Tasks from './pages/Tasks';
+import Task from './pages/Task';
+import AddTask from './pages/AddTask';  // Import AddTask component
 
-function App() {
+const App = () => {
   return (
-    <Web3Provider>
-      <Router>
-        <div className="min-h-screen bg-gray-50">
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<ChallengesPage />} />
-            <Route path="/practice" element={<ChallengesPage />} />
-            <Route path="/practice/:id" element={<ChallengePage />} />
-            {/* Add more routes as needed */}
-          </Routes>
-        </div>
-      </Router>
-    </Web3Provider>
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/tasks" element={<Tasks />} />
+        <Route path="/task/:taskId" element={<Task />} />
+        <Route path="/add-task" element={<AddTask />} />  {/* Add new route for adding tasks */}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
