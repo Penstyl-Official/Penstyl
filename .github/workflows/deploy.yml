@@ -24,4 +24,4 @@ jobs:
 
       - name: Build and deploy
         run: |
-          npm start
+          npm run deploy
