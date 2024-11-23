@@ -22,10 +22,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "react-scripts start",  // Starts the development server
+    "build": "react-scripts build",  // Builds the production version
+    "test": "react-scripts test",  // Runs tests
+    "eject": "react-scripts eject",  // Ejects the configuration (not recommended unless necessary)
+    "deploy": "npm run build && gh-pages -d build"  // Deploy to GitHub Pages using the 'build' folder
   },
   "eslintConfig": {
     "extends": [
